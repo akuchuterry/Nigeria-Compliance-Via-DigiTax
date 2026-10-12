@@ -21,7 +21,16 @@ def autoname_sales_invoice(doc, method: Optional[str] = None) -> None:
     Args:
         doc: The Sales Invoice document
         method: Hook method name (optional, not used)
+
+    Skipped (the DocType's naming series applies) when the company has no
+    NRS Settings or has "Use Customer-Based Sales Invoice Naming" unchecked.
     """
+    use_customer_naming = frappe.db.get_value(
+        "NRS Settings", {"company": doc.company}, "use_customer_invoice_naming"
+    )
+    if not use_customer_naming:
+        return
+
     customer_part = re.sub(r"[^A-Za-z0-9]", "-", doc.customer or "").upper()
     customer_part = re.sub(r"-+", "-", customer_part).strip("-")
     customer_part = customer_part[:12].strip("-")

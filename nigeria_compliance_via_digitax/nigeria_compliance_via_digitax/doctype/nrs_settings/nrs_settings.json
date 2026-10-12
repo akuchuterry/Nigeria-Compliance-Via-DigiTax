@@ -11,6 +11,7 @@
   "column_break_dgvz",
   "environment",
   "allow_nrs_tracking_sales",
+  "use_customer_invoice_naming",
   "digitax_environment_section",
   "api_key",
   "column_break_mjda",
@@ -68,12 +69,19 @@
    "fieldname": "allow_nrs_tracking_sales",
    "fieldtype": "Check",
    "label": "Allow NRS To Track Sales"
+  },
+  {
+   "default": "1",
+   "description": "Name new Sales Invoices as ACC-SINV-{CUSTOMER}-####. Uncheck to keep the Sales Invoice naming series.",
+   "fieldname": "use_customer_invoice_naming",
+   "fieldtype": "Check",
+   "label": "Use Customer-Based Sales Invoice Naming"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-06-02 12:11:56.115118",
+ "modified": "2026-10-12 10:30:00.000000",
  "modified_by": "Administrator",
  "module": "Nigeria Compliance Via Digitax",
  "name": "NRS Settings",
